@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monika Sharma — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0A1628;
+    --ink-mid: #132035;
+    --ink-light: #1A2D48;
+    --gold: #C9A84C;
+    --gold-dim: rgba(201,168,76,0.35);
+    --gold-faint: rgba(201,168,76,0.12);
+    --cream: #E8E0D0;
+    --cream-dim: rgba(232,224,208,0.7);
+    --cream-faint: rgba(232,224,208,0.15);
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink);
+    color: var(--cream);
+    font-family: 'EB Garamond', Georgia, serif;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 18px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(10,22,40,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 0.5px solid var(--gold-dim);
+  }
+  .nav-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+  }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    font-family: 'EB Garamond', serif;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    color: var(--cream-dim);
+    text-decoration: none;
+    transition: color 0.25s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 120px 48px 80px;
+    position: relative;
+    text-align: center;
+    border-bottom: 0.5px solid var(--gold-dim);
+  }
+  .hero-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+  .hero-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(52px, 9vw, 100px);
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    line-height: 1.0;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .hero-name {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(22px, 3.5vw, 38px);
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    margin-bottom: 28px;
+  }
+  .hero-tagline {
+    font-family: 'EB Garamond', serif;
+    font-size: 17px;
+    letter-spacing: 0.12em;
+    color: var(--cream-dim);
+    margin-bottom: 36px;
+  }
+  .hero-contact {
+    display: flex; gap: 24px; flex-wrap: wrap; justify-content: center;
+    font-size: 13px;
+    color: rgba(201,168,76,0.6);
+    letter-spacing: 0.06em;
+    margin-bottom: 52px;
+  }
+  .hero-contact a { color: rgba(201,168,76,0.6); text-decoration: none; transition: color 0.2s; }
+  .hero-contact a:hover { color: var(--gold); }
+  .hero-bio {
+    max-width: 640px;
+    font-size: 18px;
+    line-height: 1.85;
+    color: var(--cream-dim);
+    font-style: italic;
+  }
+  .parliament-frame {
+    width: min(420px, 88vw);
+    border: 0.5px solid var(--gold-dim);
+    padding: 12px;
+    margin-bottom: 40px;
+    background: rgba(19,32,53,0.5);
+  }
+  .parliament-inner {
+    background: #2D5048;
+    padding: 28px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .parliament-svg { width: 100%; max-width: 340px; }
+  .scroll-hint {
+    position: absolute; bottom: 32px;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    font-size: 11px; letter-spacing: 0.2em; color: rgba(201,168,76,0.4);
+  }
+  .scroll-line {
+    width: 0.5px; height: 40px; background: var(--gold-dim);
+    animation: scrollpulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollpulse { 0%,100%{opacity:0.3} 50%{opacity:1} }
+
+  /* ── SECTION COMMON ── */
+  section { padding: 100px 48px; border-bottom: 0.5px solid var(--gold-dim); }
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(32px, 5vw, 54px);
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 60px;
+  }
+
+  /* ── CONTENTS PAGE ── */
+  #contents { max-width: 780px; margin: 0 auto; }
+  .contents-grid { display: flex; flex-direction: column; gap: 16px; }
+  .contents-card {
+    border: 0.5px solid var(--gold-dim);
+    display: flex; align-items: center; gap: 24px;
+    padding: 22px 28px;
+    background: var(--cream-faint);
+    cursor: pointer;
+    transition: background 0.25s, border-color 0.25s;
+    text-decoration: none;
+  }
+  .contents-card:hover {
+    background: rgba(201,168,76,0.08);
+    border-color: var(--gold);
+  }
+  .card-num {
+    font-family: 'Cinzel', serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: rgba(201,168,76,0.35);
+    min-width: 64px;
+    line-height: 1;
+  }
+  .card-divider { width: 0.5px; height: 40px; background: var(--gold-dim); }
+  .card-info { flex: 1; }
+  .card-title-text {
+    font-family: 'EB Garamond', serif;
+    font-size: 18px;
+    color: var(--cream);
+    margin-bottom: 4px;
+    letter-spacing: 0.04em;
+  }
+  .card-sub-text {
+    font-size: 12px;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.1em;
+    color: rgba(201,168,76,0.55);
+  }
+  .card-arrow {
+    font-size: 20px;
+    color: var(--gold-dim);
+    transition: color 0.2s, transform 0.2s;
+  }
+  .contents-card:hover .card-arrow { color: var(--gold); transform: translateX(4px); }
+
+  /* ── WORK PAGES ── */
+  .work-page { max-width: 820px; margin: 0 auto; }
+  .work-header {
+    border: 0.5px solid var(--gold-dim);
+    display: flex; align-items: center; gap: 24px;
+    padding: 22px 28px; margin-bottom: 48px;
+    background: var(--cream-faint);
+  }
+  .work-header .card-num { font-size: 48px; }
+  .work-header .card-title-text { font-size: 22px; }
+  .work-body {
+    font-size: 19px;
+    line-height: 1.9;
+    color: var(--cream-dim);
+    margin-bottom: 40px;
+  }
+  .work-body p { margin-bottom: 20px; }
+
+  .stats-row {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 1px;
+    border: 0.5px solid var(--gold-dim);
+    margin-bottom: 40px;
+  }
+  .stat-box {
+    padding: 24px 20px; text-align: center;
+    background: var(--cream-faint);
+    border-right: 0.5px solid var(--gold-dim);
+  }
+  .stat-box:last-child { border-right: none; }
+  .stat-number {
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    color: var(--cream-dim);
+    font-family: 'Cinzel', serif;
+  }
+
+  .cta-button {
+    display: block;
+    border: 0.5px solid var(--gold-dim);
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--cream);
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    margin-bottom: 40px;
+    transition: background 0.25s, border-color 0.25s;
+  }
+  .cta-button:hover { background: var(--gold-faint); border-color: var(--gold); }
+  .cta-sub { font-size: 11px; color: rgba(201,168,76,0.5); letter-spacing: 0.1em; display: block; margin-top: 4px; }
+
+  .tools-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+    border: 0.5px solid var(--gold-dim);
+  }
+  .tools-cell {
+    padding: 20px 22px;
+    background: var(--cream-faint);
+    border-right: 0.5px solid var(--gold-dim);
+    border-bottom: 0.5px solid var(--gold-dim);
+  }
+  .tools-cell:nth-child(even) { border-right: none; }
+  .tools-cell:nth-last-child(-n+2) { border-bottom: none; }
+  .tools-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .tools-list { font-size: 14px; line-height: 1.8; color: var(--cream-dim); }
+
+  /* ── ARTICLES ── */
+  #articles { max-width: 820px; margin: 0 auto; }
+  .articles-list { display: flex; flex-direction: column; gap: 0; }
+  .article-item {
+    border-bottom: 0.5px solid var(--gold-dim);
+    padding: 32px 0;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: start;
+    cursor: pointer;
+    transition: padding-left 0.25s;
+  }
+  .article-item:hover { padding-left: 12px; }
+  .article-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .article-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+  .article-excerpt {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--cream-dim);
+    max-width: 560px;
+  }
+  .article-meta {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: rgba(201,168,76,0.45);
+    white-space: nowrap;
+    margin-top: 6px;
+  }
+  .article-arrow {
+    font-size: 22px;
+    color: var(--gold-dim);
+    margin-top: 4px;
+    transition: transform 0.2s, color 0.2s;
+  }
+  .article-item:hover .article-arrow { transform: translateX(4px); color: var(--gold); }
+
+  /* ── ABOUT ── */
+  #about { max-width: 820px; margin: 0 auto; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+  .about-left .about-bio {
+    font-size: 19px; line-height: 1.9; color: var(--cream-dim); margin-bottom: 32px;
+  }
+  .credentials { display: flex; flex-direction: column; gap: 16px; }
+  .cred {
+    border-left: 1px solid var(--gold-dim);
+    padding-left: 20px;
+  }
+  .cred-title { font-size: 15px; color: var(--cream); margin-bottom: 2px; }
+  .cred-sub { font-size: 12px; color: rgba(201,168,76,0.55); letter-spacing: 0.06em; }
+  .skills-block { margin-top: 40px; }
+  .skills-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .skill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .skill-tag {
+    border: 0.5px solid var(--gold-dim);
+    padding: 5px 14px;
+    font-size: 12px;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.1em;
+    color: var(--cream-dim);
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .skill-tag:hover { background: var(--gold-faint); border-color: var(--gold); }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 60px 48px;
+    text-align: center;
+    border-top: 0.5px solid var(--gold-dim);
+  }
+  .footer-name {
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .footer-links { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; }
+  .footer-links a {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    color: var(--cream-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { margin-top: 32px; font-size: 12px; color: rgba(201,168,76,0.3); letter-spacing: 0.1em; }
+
+  /* ── ANIMATIONS ── */
+  .fade-up {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── MOBILE ── */
+  @media (max-width: 680px) {
+    nav { padding: 16px 20px; }
+    .nav-links { gap: 16px; }
+    section { padding: 70px 24px; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .stats-row { grid-template-columns: 1fr; }
+    .stat-box { border-right: none; border-bottom: 0.5px solid var(--gold-dim); }
+    .tools-grid { grid-template-columns: 1fr; }
+    .tools-cell { border-right: none; }
+    .hero-contact { flex-direction: column; gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">MONIKA SHARMA</div>
+  <ul class="nav-links">
+    <li><a href="#contents">Work</a></li>
+    <li><a href="#articles">Writing</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-eyebrow">PORTFOLIO</div>
+  <div class="hero-title">MONIKA</div>
+  <div class="hero-name">SHARMA</div>
+  <div class="hero-tagline">Communications · Research · Campaigns</div>
+
+  <div class="parliament-frame fade-up">
+    <div class="parliament-inner">
+      <svg class="parliament-svg" viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <!-- Parliament sketch - simplified architectural line drawing -->
+        <g stroke="#E8E0D0" stroke-width="0.8" opacity="0.85">
+          <!-- Main building outline -->
+          <polygon points="200,30 340,110 310,230 90,230 60,110" fill="none"/>
+          <!-- Central dome -->
+          <circle cx="200" cy="110" r="38" fill="none"/>
+          <circle cx="200" cy="110" r="28" fill="none" stroke-dasharray="2,3"/>
+          <!-- Flagpole -->
+          <line x1="200" y1="30" x2="200" y2="5"/>
+          <polygon points="200,5 218,12 200,19" fill="#C9A84C" stroke="#C9A84C" stroke-width="0.5"/>
+          <!-- Columns left wing -->
+          <line x1="90" y1="150" x2="90" y2="230"/>
+          <line x1="108" y1="145" x2="108" y2="230"/>
+          <line x1="126" y1="140" x2="126" y2="230"/>
+          <line x1="144" y1="136" x2="144" y2="230"/>
+          <!-- Columns right wing -->
+          <line x1="310" y1="150" x2="310" y2="230"/>
+          <line x1="292" y1="145" x2="292" y2="230"/>
+          <line x1="274" y1="140" x2="274" y2="230"/>
+          <line x1="256" y1="136" x2="256" y2="230"/>
+          <!-- Central entrance -->
+          <rect x="174" y="175" width="52" height="55" rx="2"/>
+          <path d="M174,175 Q200,155 226,175"/>
+          <!-- Steps -->
+          <line x1="70" y1="238" x2="330" y2="238"/>
+          <line x1="60" y1="245" x2="340" y2="245"/>
+          <line x1="50" y1="252" x2="350" y2="252"/>
+          <!-- Side wings extensions -->
+          <rect x="40" y="180" width="50" height="50" rx="1"/>
+          <rect x="310" y="180" width="50" height="50" rx="1"/>
+          <!-- Decorative dome details -->
+          <line x1="200" y1="72" x2="200" y2="30"/>
+          <path d="M165,100 Q200,68 235,100"/>
+          <path d="M175,115 Q200,95 225,115"/>
+          <!-- Window details -->
+          <rect x="155" y="130" width="18" height="24" rx="1" opacity="0.6"/>
+          <rect x="183" y="130" width="18" height="24" rx="1" opacity="0.6"/>
+          <rect x="211" y="130" width="18" height="24" rx="1" opacity="0.6"/>
+          <rect x="239" y="130" width="18" height="24" rx="1" opacity="0.6"/>
+          <!-- Horizontal belt lines -->
+          <line x1="68" y1="165" x2="332" y2="165"/>
+          <line x1="75" y1="180" x2="325" y2="180"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="hero-contact fade-up">
+    <span>+91-9728951743</span>
+    <span>·</span>
+    <a href="mailto:monikamssharma5@gmail.com">monikamssharma5@gmail.com</a>
+    <span>·</span>
+    <a href="#">LinkedIn</a>
+  </div>
+
+  <p class="hero-bio fade-up">
+    Communications work across political campaigns, science institutions and independent media — distilling complex research and policy into accessible formats for diverse audiences. Experienced in newsletters, podcasts, policy reels, visual content, and annual reports for ISRO, UNICEF, and NHRC.
+  </p>
+
+  <div class="scroll-hint">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- CONTENTS -->
+<section>
+  <div id="contents" class="work-page">
+    <div class="section-label">WHAT'S INSIDE</div>
+    <div class="section-title">WORK</div>
+    <div class="contents-grid">
+      <a href="#raven" class="contents-card fade-up">
+        <div class="card-num">01</div>
+        <div class="card-divider"></div>
+        <div class="card-info">
+          <div class="card-title-text">The Raven : Newsletter</div>
+          <div class="card-sub-text">E-cell, Miranda House &nbsp;·&nbsp; 1800+ subscribers</div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+      <a href="#podcast" class="contents-card fade-up">
+        <div class="card-num">02</div>
+        <div class="card-divider"></div>
+        <div class="card-info">
+          <div class="card-title-text">The Growth Code: Podcast</div>
+          <div class="card-sub-text">E-cell, Miranda House &nbsp;·&nbsp; Spotify</div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+      <a href="#policyreel" class="contents-card fade-up">
+        <div class="card-num">03</div>
+        <div class="card-divider"></div>
+        <div class="card-info">
+          <div class="card-title-text">Policy Reel</div>
+          <div class="card-sub-text">mandate.insights &nbsp;·&nbsp; 46.6K+ Views</div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+      <a href="#illustration" class="contents-card fade-up">
+        <div class="card-num">04</div>
+        <div class="card-divider"></div>
+        <div class="card-info">
+          <div class="card-title-text">Illustration Work</div>
+          <div class="card-sub-text">Independent &nbsp;·&nbsp; Artbolism</div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 01 RAVEN -->
+<section id="raven">
+  <div class="work-page fade-up">
+    <div class="work-header">
+      <div class="card-num">01</div>
+      <div class="card-divider" style="height:50px;"></div>
+      <div class="card-info">
+        <div class="card-title-text" style="font-size:22px;">The Raven : Newsletter</div>
+        <div class="card-sub-text">E-cell, Miranda House &nbsp;·&nbsp; 1800+ subscribers</div>
+      </div>
+    </div>
+    <div class="work-body">
+      <p>Monthly newsletter on business, finance and entrepreneurship — grown from zero to 1,800+ subscribers. Managed the full editorial cycle: content strategy, writing, design layout, and Mailchimp distribution.</p>
+      <p>Features included opinion pieces, innovator profiles, business news digests, and interactive crossword quizzes — distilling complex economic topics for a student audience.</p>
+    </div>
+    <div class="stats-row fade-up">
+      <div class="stat-box"><span class="stat-number">1800+</span><span class="stat-label">Subscribers</span></div>
+      <div class="stat-box"><span class="stat-number">Monthly</span><span class="stat-label">Cadence</span></div>
+      <div class="stat-box"><span class="stat-number">Mailchimp</span><span class="stat-label">Platform</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 PODCAST -->
+<section id="podcast">
+  <div class="work-page fade-up">
+    <div class="work-header">
+      <div class="card-num">02</div>
+      <div class="card-divider" style="height:50px;"></div>
+      <div class="card-info">
+        <div class="card-title-text" style="font-size:22px;">The Growth Code: Podcast</div>
+        <div class="card-sub-text">E-cell, Miranda House &nbsp;·&nbsp; Spotify</div>
+      </div>
+    </div>
+    <div class="work-body">
+      <p>Conceptualised, produced, and distributed a podcast bridging students and entrepreneurs. Each episode provided nuanced insights into the startup world through interviews with industry leaders and influencers.</p>
+      <p>Managed all aspects from scripting and recording through editing and publishing — building the show from idea to live on Spotify.</p>
+    </div>
+    <a href="#" class="cta-button fade-up">
+      LISTEN ON SPOTIFY
+      <span class="cta-sub">TAP HERE</span>
+    </a>
+  </div>
+</section>
+
+<!-- 03 POLICY REEL -->
+<section id="policyreel">
+  <div class="work-page fade-up">
+    <div class="work-header">
+      <div class="card-num">03</div>
+      <div class="card-divider" style="height:50px;"></div>
+      <div class="card-info">
+        <div class="card-title-text" style="font-size:22px;">Policy Reel</div>
+        <div class="card-sub-text">mandate.insights &nbsp;·&nbsp; 46.6K+ Views</div>
+      </div>
+    </div>
+    <div class="work-body">
+      <p>Scripted, filmed, and edited a short-form policy explainer video for an independent political media brand. The reel broke down complex policy issues into accessible, engaging content.</p>
+      <p>Garnered 46,600 views, demonstrating the ability to translate research into social-first video formats.</p>
+    </div>
+    <div class="stats-row fade-up">
+      <div class="stat-box"><span class="stat-number">46.6K+</span><span class="stat-label">Views</span></div>
+      <div class="stat-box"><span class="stat-number">Instagram</span><span class="stat-label">Platform</span></div>
+      <div class="stat-box"><span class="stat-number">Policy</span><span class="stat-label">Explainer</span></div>
+    </div>
+    <a href="#" class="cta-button fade-up">
+      WATCH ON INSTAGRAM
+      <span class="cta-sub">TAP HERE</span>
+    </a>
+  </div>
+</section>
+
+<!-- 04 ILLUSTRATION -->
+<section id="illustration">
+  <div class="work-page fade-up">
+    <div class="work-header">
+      <div class="card-num">04</div>
+      <div class="card-divider" style="height:50px;"></div>
+      <div class="card-info">
+        <div class="card-title-text" style="font-size:22px;">Illustration Work</div>
+        <div class="card-sub-text">Independent work &nbsp;·&nbsp; Artbolism</div>
+      </div>
+    </div>
+    <div class="work-body">
+      <p>Independent creative portfolio combining social commentary with visual art — editorial illustrations exploring gender and social themes, branding for resorts and events, infographics, and social media tiles.</p>
+      <p>Experienced across Canva, Autodesk Sketchbook, Adobe Fresco, and CapCut for both professional and creative briefs.</p>
+    </div>
+    <a href="#" class="cta-button fade-up">
+      VIEW WEBSITE — ARTBOLISM
+      <span class="cta-sub">TAP HERE</span>
+    </a>
+    <div class="tools-grid fade-up">
+      <div class="tools-cell">
+        <div class="tools-label">TOOLS</div>
+        <div class="tools-list">Canva · Autodesk Sketchbook · Adobe Fresco · CapCut · IPaint</div>
+      </div>
+      <div class="tools-cell">
+        <div class="tools-label">FORMATS</div>
+        <div class="tools-list">Social tiles · Infographics · Editorial art · Brand assets · Video</div>
+      </div>
+      <div class="tools-cell">
+        <div class="tools-label">PLATFORMS</div>
+        <div class="tools-list">Instagram · WordPress · Mailchimp · Meta Analytics · LinkedIn</div>
+      </div>
+      <div class="tools-cell">
+        <div class="tools-label">RESEARCH</div>
+        <div class="tools-list">Policy briefs · Annual reports · ISRO/SAC · UNICEF · NHRC</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES / WRITING -->
+<section>
+  <div id="articles">
+    <div class="section-label">WRITING & RESEARCH</div>
+    <div class="section-title">ARTICLES</div>
+    <div class="articles-list">
+
+      <div class="article-item fade-up">
+        <div>
+          <div class="article-tag">GOVERNANCE · UNICEF · 2025–26</div>
+          <div class="article-title">Adolescent Girls in Governance: Balika Panchayat in Gujarat</div>
+          <div class="article-excerpt">Analyzing participation in Balika Panchayat governance structures to identify systemic enablers, enforcement gaps, and unintended policy outcomes across multiple districts in Gujarat. UNICEF-funded qualitative study, IIT Gandhinagar.</div>
+          <div class="article-meta">MASTER'S THESIS · FORTHCOMING 2026</div>
+        </div>
+        <div class="article-arrow">→</div>
+      </div>
+
+      <div class="article-item fade-up">
+        <div>
+          <div class="article-tag">HUMAN RIGHTS · NHRC · 2025</div>
+          <div class="article-title">Water Access & Governance in Delhi NCR: An AAAQ Assessment</div>
+          <div class="article-excerpt">Field-based governance assessments using the AAAQ (Availability, Accessibility, Acceptability, Quality) human rights framework to evaluate policy compliance, enforcement failures, and access gaps. Submitted analytical brief to the National Human Rights Commission.</div>
+          <div class="article-meta">RESEARCH BRIEF · IIT GANDHINAGAR & NHRC</div>
+        </div>
+        <div class="article-arrow">→</div>
+      </div>
+
+      <div class="article-item fade-up">
+        <div>
+          <div class="article-tag">POLITICAL SCIENCE · QUANTITATIVE · 2025</div>
+          <div class="article-title">Women's Education & Political Participation in India</div>
+          <div class="article-excerpt">Analysis of IHDS-II survey data (n ≈ 42,000 households) using multivariate OLS regression in Stata to examine determinants of female political participation. Constructed an original Female Political Participation Index assessing education, caste, religion, and rural-urban location as predictors.</div>
+          <div class="article-meta">QUANTITATIVE STUDY · IIT GANDHINAGAR</div>
+        </div>
+        <div class="article-arrow">→</div>
+      </div>
+
+      <div class="article-item fade-up">
+        <div>
+          <div class="article-tag">SCIENCE COMMUNICATION · ISRO · 2025</div>
+          <div class="article-title">CME Annual Report 2014–25: India's National Telemedicine Network</div>
+          <div class="article-excerpt">Co-authored the official Continuing Medical Education Annual Report for Space Application Centre, ISRO — evaluating program performance and operational integrity across India's national telemedicine outreach network. Published as an official SAC/ISRO document.</div>
+          <div class="article-meta">OFFICIAL REPORT · SAC/ISRO · PUBLISHED 2025</div>
+        </div>
+        <div class="article-arrow">→</div>
+      </div>
+
+      <div class="article-item fade-up">
+        <div>
+          <div class="article-tag">POLITICAL COMMUNICATION · IPAC · 2022–23</div>
+          <div class="article-title">Representation Gaps & Misinformation Risk: SC, ST and Minority Communities in Andhra Pradesh</div>
+          <div class="article-excerpt">Constituency-level field research identifying representation gaps and misinformation risks in Andhra Pradesh. Produced analytical briefs for senior leadership at the Chief Minister's Office; directly informed policy communication strategies across multiple districts.</div>
+          <div class="article-meta">POLICY BRIEF · IPAC / CHIEF MINISTER'S OFFICE, AP</div>
+        </div>
+        <div class="article-arrow">→</div>
+      </div>
+
+      <div class="article-item fade-up">
+        <div>
+          <div class="article-tag">SOCIAL COMMENTARY · ARTBOLISM</div>
+          <div class="article-title">Injurious to Character: Gender, Smoking and the Double Standard</div>
+          <div class="article-excerpt">Why is it considered a sin when a woman smokes or drinks, and why does it come on her character? An editorial exploring the gendered moral economy around substance use — where the same act is transgression for women but accepted transgression for men.</div>
+          <div class="article-meta">EDITORIAL · ARTBOLISM · INSTAGRAM</div>
+        </div>
+        <div class="article-arrow">→</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section>
+  <div id="about">
+    <div class="section-label">BACKGROUND</div>
+    <div class="section-title">ABOUT</div>
+    <div class="about-grid">
+      <div class="about-left fade-up">
+        <p class="about-bio">MA in Society and Culture (IIT Gandhinagar, 2024–26) and BA in Political Science & History (Miranda House, University of Delhi, 2019–22).</p>
+        <p class="about-bio">A purposeful generalist — working at the intersection of governance, communications, and research. Whether in political campaigns, science institutions, or field-based policy work, the throughline is the same: turning evidence into language that moves things.</p>
+        <div class="credentials">
+          <div class="cred">
+            <div class="cred-title">Master's Researcher — IIT Gandhinagar & UNICEF Gujarat</div>
+            <div class="cred-sub">Balika Panchayat Governance Study · 2025–Present</div>
+          </div>
+          <div class="cred">
+            <div class="cred-title">Social Research Intern — ISRO, Space Application Centre</div>
+            <div class="cred-sub">CME Annual Report · May–Jul 2025</div>
+          </div>
+          <div class="cred">
+            <div class="cred-title">Associate Campaign Manager — IPAC</div>
+            <div class="cred-sub">Chief Minister's Office, Andhra Pradesh · 2022–23</div>
+          </div>
+          <div class="cred">
+            <div class="cred-title">Research Assistant — NHRC & IIT Gandhinagar</div>
+            <div class="cred-sub">Water Access & Governance, Delhi NCR · 2025</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-right fade-up">
+        <div class="skills-block">
+          <div class="skills-label">RESEARCH METHODS</div>
+          <div class="skill-row">
+            <span class="skill-tag">Qualitative fieldwork</span>
+            <span class="skill-tag">OLS regression</span>
+            <span class="skill-tag">AAAQ framework</span>
+            <span class="skill-tag">Stata</span>
+            <span class="skill-tag">NVivo</span>
+            <span class="skill-tag">IHDS-II</span>
+          </div>
+        </div>
+        <div class="skills-block">
+          <div class="skills-label">COMMUNICATIONS</div>
+          <div class="skill-row">
+            <span class="skill-tag">Policy briefs</span>
+            <span class="skill-tag">Annual reports</span>
+            <span class="skill-tag">Op-eds</span>
+            <span class="skill-tag">Short-form video</span>
+            <span class="skill-tag">Newsletter editing</span>
+            <span class="skill-tag">Podcast production</span>
+          </div>
+        </div>
+        <div class="skills-block">
+          <div class="skills-label">NOTABLE ACHIEVEMENTS</div>
+          <div class="skill-row">
+            <span class="skill-tag">AIR 63 — AFCAT</span>
+            <span class="skill-tag">CDS — UPSC</span>
+            <span class="skill-tag">NCC 'C' Bravo grade</span>
+            <span class="skill-tag">Best Speaker — SW Army Command</span>
+            <span class="skill-tag">Hertie Data Science School</span>
+          </div>
+        </div>
+        <div class="skills-block">
+          <div class="skills-label">LANGUAGES</div>
+          <div class="skill-row">
+            <span class="skill-tag">English</span>
+            <span class="skill-tag">Hindi</span>
+            <span class="skill-tag">Gujarati (working)</span>
+            <span class="skill-tag">Haryanvi (native)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">MONIKA SHARMA</div>
+  <div class="footer-links">
+    <a href="mailto:monikamssharma5@gmail.com">monikamssharma5@gmail.com</a>
+    <a href="#">LinkedIn</a>
+    <a href="tel:+919728951743">+91-9728951743</a>
+  </div>
+  <div class="footer-copy">© 2025 · New Delhi / Gandhinagar</div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const els = e.target.querySelectorAll ? [e.target, ...e.target.querySelectorAll('.fade-up')] : [e.target];
+        els.forEach((el, i) => {
+          setTimeout(() => el.classList.add('visible'), i * 80);
+        });
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  document.querySelectorAll('section').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
